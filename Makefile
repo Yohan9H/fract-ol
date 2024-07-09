@@ -6,7 +6,7 @@
 #    By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 13:24:18 by yohurteb          #+#    #+#              #
-#    Updated: 2024/07/08 15:33:33 by yohurteb         ###   ########.fr        #
+#    Updated: 2024/07/09 15:31:17 by yohurteb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ MLXFLAGS = -L$(MLX) -lmlx -lmlx_Linux -lXext -lm -lbsd -lX11
 SRC = \
 	src/main.c \
 	src/check_and_set.c \
-	src/setup.c \
+	src/color.c \
+	src/mandelbrot.c \
 	utils/ft_strncmp.c \
 	utils/ft_strlen.c
 

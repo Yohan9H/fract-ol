@@ -6,33 +6,50 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:40:55 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/08 17:29:33 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/09 18:28:33 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	make_mandelbrot(t_data *fcl)
+void	make_mandelbrot(int x, int y, int max_iter, t_data fcl)
 {
-	int		i;
-	double	tmp;
 	t_pos	c;
 	t_pos	z;
+	int		iter;
+	double	temp;
 
-	i = 0;
+	c.x = (x - WIDTH / 2.0) * 4.0 / WIDTH;
+	c.y = (y - WIDTH / 2.0) * 4.0 / WIDTH;
 	z.x = 0.0;
 	z.y = 0.0;
-	c.x = (fcl->x / fcl->zoom) + fcl->offset.x;
-	c.y = (fcl->y / fcl->zoom) + fcl->offset.y;
-	while (i < ITERATION)
+	iter = 0;
+	while (z.x * z.x + z.y * z.y < 4.0 && iter < max_iter)
 	{
-		tmp = z.x * z.x - z.y *z.y + c.x;
-		z.y = 2. * z.x * z.y + c.y;
-		z.x = tmp;
-		if (z.x * z.x + z.y * z.y >= 4) // a voir si '>' ou '>='
+		temp = z.x * z.x - z.y * z.y + c.x;
+		z.y = 2.0 * z.x * z.y + c.y;
+		z.x = temp;
+		iter++;
+	}
+	return (iter);
+}
+
+void	algo_mandelbrot(t_data *fcl)
+{
+	int		x;
+	int		y;
+	int		pixel_idx;
+	double	iter;
+
+	x = 0;
+	y = 0;
+	while (y < HEIGHT)
+	{
+		while (x < WIDTH)
 		{
-			
-			break;
+			iter = calcul_iter(x, y, fcl->max_iter, fcl);
+			pixel_idx = pixel_index(x, y, fcl->line_bytes, fcl->pixel_bits);
+			//j 'ai mon iter et mon pixel_idx donc maintenant je peux faire le choix des couleurs
 		}
 	}
 }

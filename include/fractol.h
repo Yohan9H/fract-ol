@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:34:58 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/08 17:18:53 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/09 17:54:03 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@ typedef struct s_data {
 	void	*img;
 	void	*addr;
 	char	*name;
-	double	zoom;
-	double	y;
-	double	x;
-	t_pos	offset;
-	t_color	color;
+	int		line_bytes;
+	int		pixel_bits;
+	int		color;
+	double	max_r;
+	double	min_r;
+	double	max_i;
+	double	min_i;
+	double	max_iter;
 }	t_data;
 
 typedef struct s_pos {
@@ -44,9 +47,17 @@ typedef struct s_color {
 	int	b;
 }	t_color;
 
+int		create_color(t_color color);
+
+int		color_set_win(int r, int g, int b);
+
+void	init_color(t_color *color);
+
 void	check_and_set(t_data *fcl, char **av);
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int		pixel_index(int x, int y, int line_bytes, int pixel_bits);
+
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 size_t	ft_strlen(const char *s);
 

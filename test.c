@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:34:14 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/03 15:56:16 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/10 11:25:09 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 int	handle_key(int keycode, t_data *data)
 {
-	printf("keycode = %d\n", keycode);
 	if (keycode == 65307)
 	{
 		mlx_destroy_window(data->mlx, data->mlx_win);

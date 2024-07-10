@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   handle.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 13:26:27 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/10 15:02:35 by yohurteb         ###   ########.fr       */
+/*   Created: 2024/07/10 11:25:17 by yohurteb          #+#    #+#             */
+/*   Updated: 2024/07/10 14:48:17 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include <fractol.h>
 
-int	pixel_index(int x, int y, int line_bytes, int pixel_bits)
+int	handle_key(int keycode, t_data *fcl)
 {
-	int	pixel_index;
-
-	pixel_index = y * line_bytes + x * (pixel_bits / 8);
-	return (pixel_bits);
+	if (keycode == 65307)
+	{
+		mlx_destroy_window(fcl->mlx, fcl->mlx_win);
+		exit(0);
+	}
+	return (0);
 }
 
-void put_pixel(t_data *fcl, int x, int y, int color)
+int	handle_close(t_data *fcl)
 {
-	char *dst;
-
-	dst = fcl->addr + pixel_index(x, y, fcl->line_bytes, fcl->pixel_bits);
-	*(unsigned int*)dst = color;
+	mlx_destroy_window(fcl->mlx, fcl->mlx_win);
+	exit(0);
+	return (0);
 }

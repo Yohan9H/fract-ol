@@ -6,13 +6,13 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:40:55 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/09 18:28:33 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/10 15:14:19 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	make_mandelbrot(int x, int y, int max_iter, t_data fcl)
+int	make_mandelbrot(int x, int y, int max_iter)
 {
 	t_pos	c;
 	t_pos	z;
@@ -36,20 +36,28 @@ void	make_mandelbrot(int x, int y, int max_iter, t_data fcl)
 
 void	algo_mandelbrot(t_data *fcl)
 {
-	int		x;
-	int		y;
+	t_pos	coor;
+	int		i;
 	int		pixel_idx;
 	double	iter;
 
-	x = 0;
-	y = 0;
-	while (y < HEIGHT)
+	coor.x = 0;
+	coor.y = 0;
+	i = 0;
+	while (coor.y < HEIGHT)
 	{
-		while (x < WIDTH)
+		while (coor.x < WIDTH)
 		{
-			iter = calcul_iter(x, y, fcl->max_iter, fcl);
-			pixel_idx = pixel_index(x, y, fcl->line_bytes, fcl->pixel_bits);
-			//j 'ai mon iter et mon pixel_idx donc maintenant je peux faire le choix des couleurs
+			iter = make_mandelbrot(coor.x, coor.y, fcl->max_iter);
+			pixel_idx = pixel_index(coor.x, coor.y, fcl->line_bytes, fcl->pixel_bits);
+			if (iter == fcl->max_iter)
+				put_pixel(fcl, coor.x, coor.y, 0x0000FF);
+			else
+				put_pixel(fcl, coor.x, coor.y, 0x138ef2 * i);
+			i++;
+			coor.x++;
 		}
+		coor.x = 0;
+		coor.y++;
 	}
 }

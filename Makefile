@@ -6,7 +6,7 @@
 #    By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 13:24:18 by yohurteb          #+#    #+#              #
-#    Updated: 2024/07/10 13:17:49 by yohurteb         ###   ########.fr        #
+#    Updated: 2024/07/10 17:45:37 by yohurteb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ SRC = \
 	src/check_and_set.c \
 	src/color.c \
 	src/mandelbrot.c \
+	src/julia.c \
 	src/handle.c \
+	utils/ft_atof.c \
 	utils/ft_strncmp.c \
 	utils/ft_strlen.c
 

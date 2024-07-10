@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:34:58 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/10 15:03:44 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/10 17:45:24 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@
 # define ITERATION 150
 # define ZOOM 1
 
+typedef struct s_pos {
+	double x;
+	double y;
+}	t_pos;
+
 typedef struct s_data {
 	void	*mlx;
 	void	*mlx_win;
@@ -34,16 +39,15 @@ typedef struct s_data {
 	double	max_i;
 	double	min_i;
 	double	max_iter;
+	int		ac;
+	t_pos	c_julia;
 }	t_data;
 
-typedef struct s_pos {
-	double x;
-	double y;
-}	t_pos;
-
-void	check_and_set(t_data *fcl, char **av);
+void	check_and_set(t_data *fcl, char **av, int ac);
 
 void put_pixel(t_data *data, int x, int y, int color);
+
+void	algo_julia(t_data *fcl);
 
 void	algo_mandelbrot(t_data *fcl);
 
@@ -54,6 +58,8 @@ int		handle_key(int keycode, t_data *data);
 int		handle_close(t_data *data);
 
 void	error_input();
+
+double	ft_atof(char *str);
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 

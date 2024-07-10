@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:23:49 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/10 15:07:35 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/10 17:42:43 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	make_image(t_data *fcl)
 	fcl->pixel_bits = pixel_bits;
 	if (ft_strncmp(fcl->name, "mandelbrot", 10) == 0)
 		algo_mandelbrot(fcl);
+	else if (ft_strncmp(fcl->name, "julia", 5) == 0)
+		algo_julia(fcl);
 }
 
 void	init_struct(t_data *fcl)
@@ -41,9 +43,9 @@ int	main(int ac, char **av)
 {
 	t_data	fcl;
 
-	if (ac >= 2 && ac <= 4)
+	if (ac == 2 || ac == 4)
 	{
-		check_and_set(&fcl, av);
+		check_and_set(&fcl, av, ac);
 		init_struct(&fcl);
 		make_image(&fcl);
 		mlx_put_image_to_window(fcl.mlx, fcl.mlx_win, fcl.img, 0, 0);

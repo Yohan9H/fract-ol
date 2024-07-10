@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:14:56 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/10 15:01:43 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/10 17:44:45 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,13 @@ void	error_input()
 	exit(1);
 }
 
-void	setup_struct(t_data *fcl, char *type, int choice)
+void	param_user(t_data *fcl, char **av)
+{
+	fcl->c_julia.x = ft_atof(av[2]);
+	fcl->c_julia.y = ft_atof(av[3]);
+}
+
+void	setup_struct(t_data *fcl, char *type, int choice, char **av)
 {
 	if (choice == 1)
 	{
@@ -34,16 +40,24 @@ void	setup_struct(t_data *fcl, char *type, int choice)
 		fcl->max_r = 2.0;
 		fcl->min_r = -2.0;
 		fcl->max_i = -2.0;
+		if (fcl->ac > 2)
+			param_user(fcl, av);
+		else
+		{
+			fcl->c_julia.x = -0.7;
+			fcl->c_julia.y = 0.27015;
+		}
 		fcl->min_i = fcl->max_i + (fcl->max_r - fcl->min_r) * HEIGHT / WIDTH;
 	}
 }
 
-void	check_and_set(t_data *fcl, char **av)
+void	check_and_set(t_data *fcl, char **av, int ac)
 {
+	fcl->ac = ac;
 	if (ft_strncmp(av[1], "mandelbrot", 10) == 0 && ft_strlen(av[1]) == 10)
-		setup_struct(fcl, av[1], 1);
+		setup_struct(fcl, av[1], 1, av);
 	else if (ft_strncmp(av[1], "julia", 5) == 0 && ft_strlen(av[1]) == 5)
-		setup_struct(fcl, av[1], 2);
-	else // faire un check pour les parametres des fractoles '2.03'
+		setup_struct(fcl, av[1], 2, av);
+	else
 		error_input();
 }

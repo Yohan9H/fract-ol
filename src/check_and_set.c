@@ -6,22 +6,24 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:14:56 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/10 17:44:45 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:26:34 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	error_input()
+void	error_input(t_data *fcl)
 {
-	write(2, "---WRONG---\n'mandelbrot' or 'julia'", 35);
-	exit(1);
+	write(2, "---WRONG---\n\n", 13);
+	write(2, "'mandelbrot'\n OR \n'julia (double, double)'\n", 43);
+	clean(fcl);
 }
 
 void	param_user(t_data *fcl, char **av)
 {
 	fcl->c_julia.x = ft_atof(av[2]);
 	fcl->c_julia.y = ft_atof(av[3]);
+	// faire parametre	
 }
 
 void	setup_struct(t_data *fcl, char *type, int choice, char **av)
@@ -59,5 +61,5 @@ void	check_and_set(t_data *fcl, char **av, int ac)
 	else if (ft_strncmp(av[1], "julia", 5) == 0 && ft_strlen(av[1]) == 5)
 		setup_struct(fcl, av[1], 2, av);
 	else
-		error_input();
+		error_input(fcl);
 }

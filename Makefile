@@ -6,7 +6,7 @@
 #    By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 13:24:18 by yohurteb          #+#    #+#              #
-#    Updated: 2024/07/10 17:45:37 by yohurteb         ###   ########.fr        #
+#    Updated: 2024/07/11 14:24:59 by yohurteb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC = \
 	src/mandelbrot.c \
 	src/julia.c \
 	src/handle.c \
+	utils/clean.c \
 	utils/ft_atof.c \
 	utils/ft_strncmp.c \
 	utils/ft_strlen.c

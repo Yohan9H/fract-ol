@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:23:49 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/10 17:42:43 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:26:52 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ int	main(int ac, char **av)
 		mlx_loop(fcl.mlx);
 	}
 	else
-		error_input();
+		error_input(&fcl);
 }

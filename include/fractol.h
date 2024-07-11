@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:34:58 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/10 17:45:24 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:25:13 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,14 @@ int		handle_key(int keycode, t_data *data);
 
 int		handle_close(t_data *data);
 
-void	error_input();
+void	error_input(t_data *fcl);
 
 double	ft_atof(char *str);
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 size_t	ft_strlen(const char *s);
+
+void	clean(t_data *fcl);
 
 #endif

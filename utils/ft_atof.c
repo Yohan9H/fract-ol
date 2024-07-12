@@ -6,11 +6,11 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:09:00 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/11 13:36:11 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/12 14:40:17 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fractol.h>
+#include "fractol.h"
 
 int	verif_sign(char *str, int *i)
 {

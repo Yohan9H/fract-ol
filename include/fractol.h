@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:34:58 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/11 14:25:13 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/12 14:46:38 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_data {
 
 void	check_and_set(t_data *fcl, char **av, int ac);
 
-void put_pixel(t_data *data, int x, int y, int color);
+void 	put_pxl(t_data *data, int x, int y, int color);
 
 void	algo_julia(t_data *fcl);
 
@@ -56,6 +56,8 @@ int		pixel_index(int x, int y, int line_bytes, int pixel_bits);
 int		handle_key(int keycode, t_data *data);
 
 int		handle_close(t_data *data);
+
+int		mouse_hook(int button, int x, int y, t_data *fcl);
 
 void	error_input(t_data *fcl);
 

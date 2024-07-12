@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:23:49 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/11 14:26:52 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/12 17:08:38 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,23 @@ void	init_struct(t_data *fcl)
 	fcl->addr = NULL;
 	fcl->mlx = mlx_init();
 	if (!fcl->mlx)
-		exit(1);
+	{
+		clean(fcl);
+		exit (1);
+	}
 	fcl->max_iter = ITERATION;
 	fcl->mlx_win = mlx_new_window(fcl->mlx, WIDTH, HEIGHT, fcl->name);
+	if (!fcl->mlx_win)
+	{
+		clean(fcl);
+		exit (1);
+	}
 	fcl->img = mlx_new_image(fcl->mlx, WIDTH, HEIGHT);
+	if (!fcl->img)
+	{
+		clean(fcl);
+		exit (1);
+	}
 }
 
 int	main(int ac, char **av)
@@ -51,7 +64,10 @@ int	main(int ac, char **av)
 		mlx_put_image_to_window(fcl.mlx, fcl.mlx_win, fcl.img, 0, 0);
 		mlx_hook(fcl.mlx_win, 2, 1L<<0, handle_key, &fcl);
 		mlx_hook(fcl.mlx_win, 17, 0, handle_close, &fcl);
+		mlx_mouse_hook(fcl.mlx_win, mouse_hook, &fcl);
+		mlx_hook(fcl.mlx_win, 6, 1L<<6, mouse_hook, &fcl);
 		mlx_loop(fcl.mlx);
+		clean(&fcl);
 	}
 	else
 		error_input(&fcl);

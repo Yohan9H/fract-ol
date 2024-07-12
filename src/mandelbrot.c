@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:40:55 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/10 17:22:49 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/12 14:46:16 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void	algo_mandelbrot(t_data *fcl)
 		{
 			iter = make_mandelbrot(coor.x, coor.y, fcl->max_iter, fcl);
 			if (iter == fcl->max_iter)
-				put_pixel(fcl, coor.x, coor.y, 0x000000);
+				put_pxl(fcl, coor.x, coor.y, 0x000000);
 			else
-				put_pixel(fcl, coor.x, coor.y, 0xFFFFFF * (iter / fcl->max_iter));
+				put_pxl(fcl, coor.x, coor.y, 0xFFFFFF * (iter / fcl->max_iter));
 			coor.x++;
 		}
 		coor.y++;

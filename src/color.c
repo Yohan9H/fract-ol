@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 13:26:27 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/10 16:34:18 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/12 14:46:33 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	pixel_index(int x, int y, int line_bytes, int pixel_bits)
 	return (pixel_index);
 }
 
-void put_pixel(t_data *fcl, int x, int y, int color)
+void put_pxl(t_data *fcl, int x, int y, int color)
 {
 	char *dst;
 

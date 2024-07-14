@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:09:00 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/14 14:54:08 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/14 16:02:24 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	verif_sign(char *str, int *i)
 		*i = *i + 1;
 		return (-1);
 	}
-	return (0);
+	return (1);
 }
 
 double	ft_atof(char *str)

@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:34:58 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/14 14:37:34 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/14 16:48:01 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <math.h>
 # include "mlx.h"
 # define WIDTH 900
 # define HEIGHT 900
@@ -22,8 +23,8 @@
 # define ZOOM 1
 
 typedef struct s_pos {
-	double x;
-	double y;
+	double	x;
+	double	y;
 }	t_pos;
 
 typedef struct s_data {
@@ -45,11 +46,15 @@ typedef struct s_data {
 
 void	check_and_set(t_data *fcl, char **av, int ac);
 
-void 	put_pxl(t_data *data, int x, int y, int color);
+void	put_pxl(t_data *data, int x, int y, int color);
+
+int		ft_color(t_data *fcl, double iter);
 
 void	algo_julia(t_data *fcl);
 
 void	algo_mandelbrot(t_data *fcl);
+
+void	algo_burning(t_data *fcl);
 
 int		pixel_index(int x, int y, int line_bytes, int pixel_bits);
 
@@ -59,7 +64,7 @@ int		handle_close(t_data *data);
 
 int		mouse_hook(int button, int x, int y, t_data *fcl);
 
-void	error_input(t_data *fcl);
+void	error_input(void);
 
 double	ft_atof(char *str);
 

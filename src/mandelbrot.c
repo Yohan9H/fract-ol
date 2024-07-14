@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:40:55 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/12 14:46:16 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/14 16:47:24 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	make_mandelbrot(int x, int y, int max_iter, t_data *fcl)
 	t_pos	z;
 	int		iter;
 	double	temp;
-	
+
 	c.x = fcl->min_r + x * (fcl->max_r - fcl->min_r) / WIDTH;
 	c.y = fcl->min_i + y * (fcl->max_i - fcl->min_i) / HEIGHT;
 	z.x = 0.0;
@@ -38,6 +38,7 @@ void	algo_mandelbrot(t_data *fcl)
 {
 	t_pos	coor;
 	double	iter;
+	int		color;
 
 	coor.y = 0;
 	while (coor.y < HEIGHT)
@@ -49,7 +50,10 @@ void	algo_mandelbrot(t_data *fcl)
 			if (iter == fcl->max_iter)
 				put_pxl(fcl, coor.x, coor.y, 0x000000);
 			else
-				put_pxl(fcl, coor.x, coor.y, 0xFFFFFF * (iter / fcl->max_iter));
+			{
+				color = ft_color(fcl, iter);
+				put_pxl(fcl, coor.x, coor.y, color);
+			}			
 			coor.x++;
 		}
 		coor.y++;

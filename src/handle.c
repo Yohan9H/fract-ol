@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 11:25:17 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/14 14:10:59 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/14 16:46:28 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	mouse_hook_put(t_data *fcl)
 		algo_mandelbrot(fcl);
 	if (ft_strncmp(fcl->name, "julia", 5) == 0)
 		algo_julia(fcl);
+	if (ft_strncmp(fcl->name, "burning_ship", 12) == 0)
+		algo_burning(fcl);
 	mlx_put_image_to_window(fcl->mlx, fcl->mlx_win, fcl->img, 0, 0);
 }
 
@@ -46,7 +48,7 @@ void	zoom_mouse(t_data *fcl, double zoom, int mse_x, int mse_y)
 	double	new_height;
 
 	mse_r = fcl->min_r + ((double)mse_x / WIDTH) * (fcl->max_r - fcl->min_r);
-	mse_i = fcl->min_i + ((double)mse_y / HEIGHT) 
+	mse_i = fcl->min_i + ((double)mse_y / HEIGHT)
 		* (fcl->max_i - fcl->min_i);
 	new_width = (fcl->max_r - fcl->min_r) * zoom;
 	new_height = (fcl->max_i - fcl->min_i) * zoom;
@@ -58,8 +60,6 @@ void	zoom_mouse(t_data *fcl, double zoom, int mse_x, int mse_y)
 
 int	mouse_hook(int button, int x, int y, t_data *fcl)
 {
-	(void)x;
-	(void)y;
 	if (button == 4)
 	{
 		zoom_mouse(fcl, 0.90, x, y);

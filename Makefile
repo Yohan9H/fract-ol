@@ -6,7 +6,7 @@
 #    By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 13:24:18 by yohurteb          #+#    #+#              #
-#    Updated: 2024/07/11 14:24:59 by yohurteb         ###   ########.fr        #
+#    Updated: 2024/07/14 15:14:42 by yohurteb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC = \
 	src/color.c \
 	src/mandelbrot.c \
 	src/julia.c \
+	src/burning_ship.c \
 	src/handle.c \
 	utils/clean.c \
 	utils/ft_atof.c \

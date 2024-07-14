@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:23:49 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/12 17:08:38 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/14 14:14:19 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,9 @@ int	main(int ac, char **av)
 		mlx_hook(fcl.mlx_win, 6, 1L<<6, mouse_hook, &fcl);
 		mlx_loop(fcl.mlx);
 		clean(&fcl);
+		exit(0);
 	}
 	else
 		error_input(&fcl);
+	return (0);
 }

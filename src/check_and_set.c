@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:14:56 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/11 14:26:34 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/14 14:51:20 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	param_user(t_data *fcl, char **av)
 {
 	fcl->c_julia.x = ft_atof(av[2]);
 	fcl->c_julia.y = ft_atof(av[3]);
-	// faire parametre	
 }
 
 void	setup_struct(t_data *fcl, char *type, int choice, char **av)

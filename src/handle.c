@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 11:25:17 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/12 14:39:42 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/14 14:10:59 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 int	handle_key(int keycode, t_data *fcl)
 {
 	if (keycode == 65307)
+	{
 		clean(fcl);
+		exit(0);
+	}
 	return (0);
 }
 
 int	handle_close(t_data *fcl)
 {
 	clean(fcl);
+	exit(0);
 	return (0);
 }
 

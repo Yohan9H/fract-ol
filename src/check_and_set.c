@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:14:56 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/14 17:04:28 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/15 13:19:15 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,15 @@ void	error_input(void)
 
 void	param_user(t_data *fcl, char **av)
 {
-	if (fcl->ac > 2)
+	if (fcl->ac == 4)
 	{
 		fcl->c_julia.x = ft_atof(av[2]);
 		fcl->c_julia.y = ft_atof(av[3]);
+	}
+	else if (fcl->ac == 3)
+	{
+		fcl->c_julia.x = ft_atof(av[2]);
+		fcl->c_julia.y = 0.0;
 	}
 	else
 	{

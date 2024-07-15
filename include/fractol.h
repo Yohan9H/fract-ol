@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:34:58 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/14 16:48:01 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/15 15:36:45 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@
 # define HEIGHT 900
 # define ITERATION 150
 # define ZOOM 1
+# define ESC 65307
+# define UP 65362
+# define DOWN 65364
+# define LEFT 65361
+# define RIGHT 65363
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_PLUS 1
+# define KEY_MINUS 0
 
 typedef struct s_pos {
 	double	x;
@@ -73,5 +82,17 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *s);
 
 void	clean(t_data *fcl);
+
+void	move_up(t_data *fcl);
+
+void	move_down(t_data *fcl);
+
+void	move_left(t_data *fcl);
+
+void	move_right(t_data *fcl);
+
+void	key_iterate(t_data *fcl, int choice);
+
+void	hook_put(t_data *fcl);
 
 #endif

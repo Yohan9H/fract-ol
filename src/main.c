@@ -6,7 +6,7 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:23:49 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/14 16:52:24 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/15 15:23:11 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main(int ac, char **av)
 {
 	t_data	fcl;
 
-	if (ac == 2 || ac == 4)
+	if (ac >= 2 && ac <= 4)
 	{
 		check_and_set(&fcl, av, ac);
 		init_struct(&fcl);

@@ -6,30 +6,13 @@
 /*   By: yohurteb <yohurteb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 11:25:17 by yohurteb          #+#    #+#             */
-/*   Updated: 2024/07/14 16:46:28 by yohurteb         ###   ########.fr       */
+/*   Updated: 2024/07/15 15:37:56 by yohurteb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	handle_key(int keycode, t_data *fcl)
-{
-	if (keycode == 65307)
-	{
-		clean(fcl);
-		exit(0);
-	}
-	return (0);
-}
-
-int	handle_close(t_data *fcl)
-{
-	clean(fcl);
-	exit(0);
-	return (0);
-}
-
-void	mouse_hook_put(t_data *fcl)
+void	hook_put(t_data *fcl)
 {
 	if (ft_strncmp(fcl->name, "mandelbrot", 10) == 0)
 		algo_mandelbrot(fcl);
@@ -38,6 +21,39 @@ void	mouse_hook_put(t_data *fcl)
 	if (ft_strncmp(fcl->name, "burning_ship", 12) == 0)
 		algo_burning(fcl);
 	mlx_put_image_to_window(fcl->mlx, fcl->mlx_win, fcl->img, 0, 0);
+}
+
+int	handle_key(int keycode, t_data *fcl)
+{
+	if (keycode == ESC)
+	{
+		clean(fcl);
+		exit(0);
+	}
+	if (keycode >= LEFT && keycode <= DOWN)
+	{
+		if (keycode == UP)
+			move_up(fcl);
+		if (keycode == DOWN)
+			move_down(fcl);
+		if (keycode == LEFT)
+			move_left(fcl);
+		if (keycode == RIGHT)
+			move_right(fcl);
+		hook_put(fcl);
+	}
+	if (keycode == KEY_A)
+		key_iterate(fcl, KEY_PLUS);
+	if (keycode == KEY_S)
+		key_iterate(fcl, KEY_MINUS);
+	return (0);
+}
+
+int	handle_close(t_data *fcl)
+{
+	clean(fcl);
+	exit(0);
+	return (0);
 }
 
 void	zoom_mouse(t_data *fcl, double zoom, int mse_x, int mse_y)
@@ -63,12 +79,12 @@ int	mouse_hook(int button, int x, int y, t_data *fcl)
 	if (button == 4)
 	{
 		zoom_mouse(fcl, 0.90, x, y);
-		mouse_hook_put(fcl);
+		hook_put(fcl);
 	}
 	if (button == 5)
 	{
 		zoom_mouse(fcl, 1.10, x, y);
-		mouse_hook_put(fcl);
+		hook_put(fcl);
 	}
 	return (0);
 }
